@@ -56,3 +56,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "typhoeus", "~> 1.4"
+
+gem 'dotenv-rails'
