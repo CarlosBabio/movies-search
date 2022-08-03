@@ -4,9 +4,8 @@
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-.card-title {
-  color: white !important;
-  font-size: 2.5em;
+.card img {
+  border-radius: inherit;
 }
 
 .card-bg-red {
@@ -24,40 +23,27 @@
 .card-bg-blue {
   background-color: #bae1ff;
 }
-// .card:hover {
-//   background-blend-mode: darken;
-//   background: rgba(53, 21, 0, 0.7);
 
-//   .movie-poster {
-//     border-radius: 15px !important;
-//   }
-// }
-
-.card img {
-  border-radius: inherit;
-}
-
-// .card-bookmark:hover {
-//   background-color: rgba(255, 206, 169, 0.6);
-// }
-
-.card-bookmark-content {
+.card-content {
   margin: 5px;
   padding: 15px;
   border-radius: 15px;
-  background-color: white;
-  box-sizing: border-box;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
+  background: inherit;
+  overflow: hidden;
 }
-
-.card-comment {
-  color: #9c9c9c;
-}
-
-.movie-poster {
-  border-radius: 15px 0 0 15px !important;
-  max-width: 140px;
-
-  &:hover {
-    border-radius: 15px !important;
-  }
+.card-content:before {
+  content: "";
+  position: absolute;
+  background: inherit;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5);
+  filter: blur(10px);
+  margin: -20px;
 }

@@ -1,0 +1,17 @@
+<% movies.each do |movie| %>
+  <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
+    <%= content_tag(:div, class: ["card", "mb-3", "card-bg-#{bg_colour(movie["Title"])}"], style: 'max-width: 300px;') do %>
+      <% if movie["Poster"] != "N/A" %>
+        <%= image_tag image_url(movie["Poster"]), class: "card-img-top" %>
+      <% else %>
+        <%= image_tag image_url("https://ih1.redbubble.net/image.195569260.8857/flat,550x550,075,f.u2.jpg"), class: "card-img-top" %>
+      <% end %>
+      <div class="card-body">
+        <div class="card-content">
+          <h4><%= movie["Title"] %></h4>
+          <p><%= movie["Year"] %> | <span class="fst-italic"><%= movie_runtime(movie["Title"]) %></span></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

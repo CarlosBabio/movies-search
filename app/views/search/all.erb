@@ -1,12 +1,10 @@
 <div class="container">
-
-  <%# Search box %>
   <%= render "shared/search_box" %>
-
-  <%# Iterating over the list of returned movies and creating a card for each %>
   <div class="row row-cols-1 row-cols-md-3">
-    <% if @movies %>
-      <%= render "shared/movie_search", movies: @movies %>
+    <% if @all_colours_arr %>
+      <% @all_colours_arr.each do |single_colour| %>
+        <%= render "shared/movie_search", movies: single_colour %>
+      <% end %>
     <% else %>
     <div class="d-flex justify-content-center"></div>
       <p class="text-center">Oh no! There doesn't seem to be any movies with that name, please try again.</p>

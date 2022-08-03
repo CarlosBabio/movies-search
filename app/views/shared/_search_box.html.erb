@@ -1,0 +1,12 @@
+  <div class="d-flex justify-content-center" style="width:100%">
+    <div class="search">
+      <h1>Colour Movies Search</h1>
+      <%= form_tag("/search", method: "get") do %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search", class: "btn btn-primary btn-sm") %>
+      <% end %>
+      <%= form_tag("/all", method: "get") do %>
+        <%= submit_tag("All colour search", class: "btn btn-primary btn-sm") %>
+      <% end %>
+    </div>
+  </div>
