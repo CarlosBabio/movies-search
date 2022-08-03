@@ -1,10 +1,32 @@
-<%= form_tag("/search", method: "get") do %>
-  <%= label_tag(:q, "Search for:") %>
-  <%= text_field_tag(:q) %>
-  <%= submit_tag("Search") %>
-<% end %>
-<% @movies.each do |movie| %>
-	<div class="container">
-    <a href='/movie?q=<%= movie["imdbID"] %>'><%= movie["Title"] %>
+<div class="container">
+
+  <%# Search box %>
+  <div class="d-flex justify-content-center" style="width:100%">
+    <div class="search">
+      <h1>Colour Movies Search</h1>
+      <%= form_tag("/search", method: "get") do %>
+        <%= text_field_tag(:q) %>
+        <%= submit_tag("Search", class: "btn btn-primary btn-sm") %>
+      <% end %>
+    </div>
   </div>
-<% end %>
+
+  <%# Iterating over the list of returned movies and creating a card for each %>
+  <div class="row row-cols-1 row-cols-md-3">
+    <% @movies.each do |movie| %>
+      <div class="col d-flex justify-content-center" style="padding-bottom: 15px">
+        <%= content_tag(:div, class: ["card", "mb-3", "card-bg-#{params[:q]}"], style: 'max-width: 300px;') do %>
+              <%= image_tag image_url(movie["Poster"]), class: "card-img-top" %>
+          <div class="card-body">
+            <div class="card-bookmark-content">
+              <h4><%= movie["Title"] %></h4>
+              <p><%= movie["Year"] %></p>
+              <% response = Typhoeus.get("http://www.omdbapi.com/?apikey=#{ENV['OMDB_KEY']}&s", params: {t: movie["Title"]}) %>
+              <p class="card-comment fst-italic"><%= JSON.parse(response.body)["Runtime"] %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

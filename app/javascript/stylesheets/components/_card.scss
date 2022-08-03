@@ -1,0 +1,63 @@
+.card {
+  border-radius: 15px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+.card-title {
+  color: white !important;
+  font-size: 2.5em;
+}
+
+.card-bg-red {
+  background-color: #ffb3ba;
+}
+
+.card-bg-yellow {
+  background-color: #ffffba;
+}
+
+.card-bg-green {
+  background-color: #baffc9;
+}
+
+.card-bg-blue {
+  background-color: #bae1ff;
+}
+// .card:hover {
+//   background-blend-mode: darken;
+//   background: rgba(53, 21, 0, 0.7);
+
+//   .movie-poster {
+//     border-radius: 15px !important;
+//   }
+// }
+
+.card img {
+  border-radius: inherit;
+}
+
+// .card-bookmark:hover {
+//   background-color: rgba(255, 206, 169, 0.6);
+// }
+
+.card-bookmark-content {
+  margin: 5px;
+  padding: 15px;
+  border-radius: 15px;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.card-comment {
+  color: #9c9c9c;
+}
+
+.movie-poster {
+  border-radius: 15px 0 0 15px !important;
+  max-width: 140px;
+
+  &:hover {
+    border-radius: 15px !important;
+  }
+}

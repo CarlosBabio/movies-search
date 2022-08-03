@@ -1,0 +1,14 @@
+.banner {
+  max-height: 900px;
+  height: 100vh;
+  width: auto;
+  background-size: cover;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("https://wallpaper.dog/large/5486331.jpg"),
+    radial-gradient(rgba(0, 0, 0, 0.7), transparent);
+  color: white;
+}
