@@ -1,9 +1,15 @@
 <div class="container">
+
+  <%# Search box %>
   <%= render "shared/search_box" %>
   <div class="row row-cols-1 row-cols-md-3">
+
+    <%# Checking to see if search results exist, if not will throw an error message %>
     <% if @all_colours_arr %>
+
+    <%# Iterating over array of objects to return each movie colour object %>
       <% @all_colours_arr.each do |single_colour| %>
-        <%= render "shared/movie_search", movies: single_colour %>
+        <%= render "shared/search_results", movies: single_colour %>
       <% end %>
     <% else %>
     <div class="d-flex justify-content-center"></div>

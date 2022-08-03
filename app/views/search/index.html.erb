@@ -3,12 +3,14 @@
   <%# Search box %>
   <%= render "shared/search_box" %>
 
-  <%# Iterating over the list of returned movies and creating a card for each %>
-  <div class="row row-cols-1 row-cols-md-3">
+  <div class="row row-cols-1 row-cols-md-3 d-flex justify-content-center">
+
+    <%# Checking to see if search results exist, if not will throw an error message %>
     <% if @movies %>
-      <%= render "shared/movie_search", movies: @movies %>
+
+      <%# Iterating over the list of returned movies and creating a card for each %>
+      <%= render "shared/search_results", movies: @movies %>
     <% else %>
-    <div class="d-flex justify-content-center"></div>
       <p class="text-center">Oh no! There doesn't seem to be any movies with that name, please try again.</p>
     <% end %>
   </div>

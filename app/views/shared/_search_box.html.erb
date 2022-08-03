@@ -1,12 +1,41 @@
-  <div class="d-flex justify-content-center" style="width:100%">
-    <div class="search">
-      <h1>Colour Movies Search</h1>
-      <%= form_tag("/search", method: "get") do %>
+<div class="d-flex justify-content-center" style="width:100%">
+  <div class="search">
+    <%= image_tag("popcorn.png", size: '80') %>
+    <h1 class="mb-3">Movie Time</h1>
+
+    <%# Conditional to check query and return an appropriate text message for user %>
+    <% if params[:q] && params[:q] != "" %>
+      <h5>Results for:
+        <span class="fst-italic
+          <% if @colours.include?(params[:q])%>
+            text-<%= params[:q] %>
+          <% end %>
+          ">
+          <%= params[:q] %>
+        </span>
+      </h5>
+    <% elsif params[:commit] == "All colour search" %>
+      <h5>All colour search:
+        <span style=color:#ffb3ba;>red</span>
+        <span style=color:#baffc9;>green</span>
+        <span style=color:#bae1ff;>blue</span>
+        <span style=color:#ffffba;>yellow</span>
+      </h5>
+    <% else %>
+      <h5>What would you like to search?</h5>
+    <% end %>
+    <div class="d-flex">
+
+      <%# Seach box with search button %>
+      <%= form_tag("/search", method: "get", class: "d-flex") do %>
         <%= text_field_tag(:q) %>
-        <%= submit_tag("Search", class: "btn btn-primary btn-sm") %>
+        <%= submit_tag("Search", class: "btn btn-success btn-sm mx-1") %>
       <% end %>
+
+      <%# All colour search button %>
       <%= form_tag("/all", method: "get") do %>
-        <%= submit_tag("All colour search", class: "btn btn-primary btn-sm") %>
+        <%= submit_tag("All colour search", class: "btn btn-success btn-sm") %>
       <% end %>
     </div>
   </div>
+</div>
